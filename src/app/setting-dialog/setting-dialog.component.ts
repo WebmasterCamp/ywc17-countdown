@@ -21,7 +21,8 @@ export class SettingDialogComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-  async onOk() {
+  async onOk(event: any) {
+    event.preventDefault();
     try {
       if (this.password === 'iamyourfather') {
         const [hour, minute] = this.timeControl.value.split(':');

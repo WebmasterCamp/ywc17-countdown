@@ -1,4 +1,4 @@
-<div class="container">
+<form class="container" (submit)="onOk($event)">
   <h1 mat-dialog-title>Countdown Setting</h1>
   <div class="content" mat-dialog-content>
     <mat-form-field class="input-wrapper">
@@ -14,20 +14,21 @@
         matInput
         type="password"
         [(ngModel)]="password"
+        [ngModelOptions]="{standalone: true}"
         placeholder="Password"
       />
     </mat-form-field>
+    <div class="action-bar" mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Close</button>
+      <button
+        mat-button
+        [disabled]="!timeControl.value"
+        cdkFocusInitial
+        type="submit"
+        color="primary"
+      >
+        Ok
+      </button>
+    </div>
   </div>
-  <div class="action-bar" mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Close</button>
-    <button
-      mat-button
-      [disabled]="!timeControl.value"
-      (click)="onOk()"
-      cdkFocusInitial
-      color="primary"
-    >
-      Ok
-    </button>
-  </div>
-</div>
+</form>
