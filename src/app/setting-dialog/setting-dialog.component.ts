@@ -10,7 +10,7 @@ import { FormControl } from '@angular/forms';
 })
 export class SettingDialogComponent implements OnInit {
   timeControl = new FormControl('10:00');
-
+  password = '';
   constructor(
     public dialogRef: MatDialogRef<SettingDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -23,12 +23,17 @@ export class SettingDialogComponent implements OnInit {
   }
   async onOk() {
     try {
-      const [hour, minute] = this.timeControl.value.split(':');
-      const until = new Date();
-      until.setHours(until.getHours() + Number(hour));
-      until.setMinutes(until.getMinutes() + Number(minute));
-      await this.db.doc('config/countdown').set({ until });
-      this.onNoClick();
+      if (this.password === 'iamyourfather') {
+        const [hour, minute] = this.timeControl.value.split(':');
+        const until = new Date();
+        until.setHours(until.getHours() + Number(hour));
+        until.setMinutes(until.getMinutes() + Number(minute));
+        await this.db.doc('config/countdown').set({ until });
+        this.onNoClick();
+      } else {
+        alert('Invalid password');
+        this.password = '';
+      }
     } catch (error) {
       console.error(error);
       this.onNoClick();

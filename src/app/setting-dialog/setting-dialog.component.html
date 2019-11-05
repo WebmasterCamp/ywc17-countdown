@@ -9,6 +9,14 @@
         placeholder="Time"
       />
     </mat-form-field>
+    <mat-form-field class="input-wrapper">
+      <input
+        matInput
+        type="password"
+        [(ngModel)]="password"
+        placeholder="Password"
+      />
+    </mat-form-field>
   </div>
   <div class="action-bar" mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Close</button>
