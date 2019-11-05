@@ -1,1 +1,19 @@
-<p>countdown works!</p>
+<div class="container">
+  <div
+    [ngClass]="{ 'text-background': true, warn: isEnd }"
+    (click)="openSettingDialog()"
+  >
+    <p [ngClass]="{ 'countdown-text': true, warn: isEnd }">
+      <span
+        *ngFor="
+          let letter of (isEnd
+            ? 'หมดเวลา'
+            : (countdown | async) || 'LOADING...'
+          ).split('')
+        "
+      >
+        {{ letter }}
+      </span>
+    </p>
+  </div>
+</div>

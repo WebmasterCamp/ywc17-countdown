@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 mat-dialog-title>Countdown Setting</h1>
+  <div class="content" mat-dialog-content>
+    <mat-form-field class="input-wrapper">
+      <input
+        matInput
+        type="time"
+        [formControl]="timeControl"
+        placeholder="Time"
+      />
+    </mat-form-field>
+  </div>
+  <div class="action-bar" mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Close</button>
+    <button
+      mat-button
+      [disabled]="!timeControl.value"
+      (click)="onOk()"
+      cdkFocusInitial
+      color="primary"
+    >
+      Ok
+    </button>
+  </div>
+</div>
