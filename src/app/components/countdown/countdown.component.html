@@ -1,0 +1,17 @@
+<div class="container">
+  <div
+    [ngClass]="{ 'text-background': true, warn: isEnd }"
+    (click)="openSettingDialog()"
+  >
+    <p [ngClass]="{ 'countdown-text': true, warn: isEnd }">
+      <ng-container *ngIf="!showText; else textTemplate">
+        <span *ngFor="let letter of timeLetters">
+          {{ letter }}
+        </span>
+      </ng-container>
+      <ng-template #textTemplate>
+        {{ text }}
+      </ng-template>
+    </p>
+  </div>
+</div>

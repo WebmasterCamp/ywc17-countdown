@@ -11,17 +11,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-import { CountdownComponent } from './countdown/countdown.component';
+import { CountdownComponent } from './components/countdown/countdown.component';
 import { environment } from '../environments/environment';
-import { SettingDialogComponent } from './setting-dialog/setting-dialog.component';
-import { LetDirective } from './directives/let.directive';
+import { SettingDialogComponent } from './components/setting-dialog/setting-dialog.component';
 @NgModule({
-  declarations: [
-    AppComponent,
-    CountdownComponent,
-    SettingDialogComponent,
-    LetDirective
-  ],
+  declarations: [AppComponent, CountdownComponent, SettingDialogComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

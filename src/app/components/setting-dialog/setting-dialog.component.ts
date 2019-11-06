@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormControl } from '@angular/forms';
 import { map, flatMap } from 'rxjs/operators';
-import { CountdownConfig } from '../type';
+import { CountdownConfig } from '../../type';
 
 @Component({
   selector: 'app-setting-dialog',
