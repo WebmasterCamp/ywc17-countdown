@@ -14,8 +14,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { CountdownComponent } from './countdown/countdown.component';
 import { environment } from '../environments/environment';
 import { SettingDialogComponent } from './setting-dialog/setting-dialog.component';
+import { LetDirective } from './directives/let.directive';
 @NgModule({
-  declarations: [AppComponent, CountdownComponent, SettingDialogComponent],
+  declarations: [
+    AppComponent,
+    CountdownComponent,
+    SettingDialogComponent,
+    LetDirective
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

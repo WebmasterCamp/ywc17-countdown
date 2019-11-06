@@ -3,17 +3,18 @@
     [ngClass]="{ 'text-background': true, warn: isEnd }"
     (click)="openSettingDialog()"
   >
-    <p [ngClass]="{ 'countdown-text': true, warn: isEnd }">
-      <span
-        *ngFor="
-          let letter of (isEnd
-            ? 'หมดเวลา'
-            : (countdown | async) || 'LOADING...'
-          ).split('')
-        "
-      >
-        {{ letter }}
-      </span>
+    <p
+      [ngClass]="{ 'countdown-text': true, warn: isEnd }"
+      *appLet="(countdown | async) || '' as letters"
+    >
+      <ng-container *ngIf="showCountdown; else notShowCountdownTemplate">
+        <span *ngFor="let letter of (isEnd ? 'หมดเวลา' : letters).split('')">
+          {{ letter }}
+        </span>
+      </ng-container>
+      <ng-template #notShowCountdownTemplate>
+        {{ text || 'LOADING...' }}
+      </ng-template>
     </p>
   </div>
 </div>

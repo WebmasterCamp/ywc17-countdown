@@ -14,12 +14,12 @@
         matInput
         type="password"
         [(ngModel)]="password"
-        [ngModelOptions]="{standalone: true}"
+        [ngModelOptions]="{ standalone: true }"
         placeholder="Password"
       />
     </mat-form-field>
     <div class="action-bar" mat-dialog-actions>
-      <button mat-button (click)="onNoClick()">Close</button>
+      <button mat-button type="button" (click)="onNoClick()">Close</button>
       <button
         mat-button
         [disabled]="!timeControl.value"

@@ -4,10 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, interval } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
-
-interface CountdownConfig {
-  until: firebase.firestore.Timestamp;
-}
+import { CountdownConfig } from '../type';
 
 const fillZero = (input: number, n: number) =>
   (input / 10 ** n).toFixed(n).split('.')[1];
@@ -20,6 +17,8 @@ const fillZero = (input: number, n: number) =>
 export class CountdownComponent implements OnInit {
   countdown: Observable<string>;
   isEnd: boolean;
+  text: string;
+  showCountdown: boolean;
   constructor(private db: AngularFirestore, public dialog: MatDialog) {}
 
   ngOnInit() {
@@ -27,9 +26,15 @@ export class CountdownComponent implements OnInit {
       .doc<CountdownConfig>('config/countdown')
       .valueChanges()
       .pipe(
+        map(config => {
+          this.text = config.text;
+          this.showCountdown = config.showCountdown;
+          console.log(this.showCountdown);
+          return config;
+        }),
         map(config => config.until.toDate()),
         switchMap(date =>
-          interval(60).pipe(
+          interval(91).pipe(
             map(() => {
               const timeDiff = date.getTime() - new Date().getTime();
               if (timeDiff > 0) {
