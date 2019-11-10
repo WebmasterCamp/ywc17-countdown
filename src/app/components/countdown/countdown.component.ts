@@ -1,9 +1,7 @@
-import { SettingDialogComponent } from '../setting-dialog/setting-dialog.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable, interval, Subscription } from 'rxjs';
 import { map, switchMap, startWith } from 'rxjs/operators';
-import { MatDialog } from '@angular/material/dialog';
+import { Observable, interval, Subscription } from 'rxjs';
 import { CountdownConfig } from '../../type';
 
 const fillZero = (input: number, n: number) =>
@@ -14,13 +12,13 @@ const fillZero = (input: number, n: number) =>
   templateUrl: './countdown.component.html',
   styleUrls: ['./countdown.component.scss']
 })
-export class CountdownComponent implements OnInit {
+export class CountdownComponent implements OnInit, OnDestroy {
   countdownSubscription: Subscription;
   isEnd: boolean;
   text: string;
   showText: boolean;
   timeLetters: string[];
-  constructor(private db: AngularFirestore, public dialog: MatDialog) {}
+  constructor(private db: AngularFirestore) {}
 
   ngOnInit() {
     this.countdownSubscription = this.db
@@ -47,10 +45,8 @@ export class CountdownComponent implements OnInit {
       });
   }
 
-  openSettingDialog() {
-    this.dialog.open(SettingDialogComponent, {
-      width: '400px'
-    });
+  ngOnDestroy() {
+    this.countdownSubscription.unsubscribe();
   }
 
   getTimeDiff(date: Date) {

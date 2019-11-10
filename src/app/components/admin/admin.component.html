@@ -1,0 +1,7 @@
+<div class="container">
+  <app-admin-action-card *ngIf="user && permission"></app-admin-action-card>
+  <mat-spinner *ngIf="user && checkingPermission"></mat-spinner>
+  <app-admin-signin-card
+    *ngIf="!user && !checkingPermission"
+  ></app-admin-signin-card>
+</div>

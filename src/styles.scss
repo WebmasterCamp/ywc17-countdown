@@ -1,3 +1,5 @@
+@import '~firebaseui/dist/firebaseui.css';
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
@@ -39,5 +41,10 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
   background: #111;
+  color: #fefefe;
+}
+
+a {
+  text-decoration: none;
   color: #fefefe;
 }
