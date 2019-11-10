@@ -16,12 +16,16 @@ import { CountdownComponent } from './components/countdown/countdown.component';
 import { environment } from '../environments/environment';
 import { SettingDialogComponent } from './components/setting-dialog/setting-dialog.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
+import { FirebaseUIModule, firebase } from 'firebaseui-angular';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {
-  MatProgressSpinnerModule,
-  MatSpinner
-} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { AdminSigninCardComponent } from './components/admin/admin-signin-card/admin-signin-card.component';
 import { AdminActionCardComponent } from './components/admin/admin-action-card/admin-action-card.component';
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
@@ -55,7 +59,14 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     ReactiveFormsModule,
     MatCardModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCheckboxModule,
+    MatDividerModule,
+    MatListModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatMomentDateModule
   ],
   providers: [],
   bootstrap: [AppComponent],

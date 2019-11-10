@@ -43,4 +43,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.authSubscription.unsubscribe();
   }
+  signOut() {
+    this.auth.signOut();
+  }
 }

@@ -2,5 +2,5 @@ export interface CountdownConfig {
   until: firebase.firestore.Timestamp;
   password: string;
   text: string;
-  showText: boolean;
+  showing: string;
 }

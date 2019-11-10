@@ -32,4 +32,7 @@ export class AuthService {
       this.afAuth.auth.createUserWithEmailAndPassword(email, password)
     );
   }
+  signOut() {
+    this.afAuth.auth.signOut();
+  }
 }

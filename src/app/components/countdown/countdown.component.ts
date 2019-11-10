@@ -1,8 +1,7 @@
+import { CountdownService } from './../../services/countdown.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { map, switchMap, startWith } from 'rxjs/operators';
 import { Observable, interval, Subscription } from 'rxjs';
-import { CountdownConfig } from '../../type';
 
 const fillZero = (input: number, n: number) =>
   (input / 10 ** n).toFixed(n).split('.')[1];
@@ -18,16 +17,14 @@ export class CountdownComponent implements OnInit, OnDestroy {
   text: string;
   showText: boolean;
   timeLetters: string[];
-  constructor(private db: AngularFirestore) {}
+  constructor(private countdown: CountdownService) {}
 
   ngOnInit() {
-    this.countdownSubscription = this.db
-      .doc<CountdownConfig>('config/countdown')
-      .valueChanges()
+    this.countdownSubscription = this.countdown.config
       .pipe(
         map(config => {
           this.text = config.text;
-          this.showText = config.showText;
+          this.showText = config.showing === 'text';
           return config;
         }),
         map(config => config.until.toDate()),
@@ -40,8 +37,10 @@ export class CountdownComponent implements OnInit, OnDestroy {
         map(time => (this.isEnd ? 'หมดเวลา' : time)),
         startWith('LOADING...')
       )
-      .subscribe(letters => {
-        this.timeLetters = letters.split('');
+      .subscribe({
+        next: letters => {
+          this.timeLetters = letters.split('');
+        }
       });
   }
 
