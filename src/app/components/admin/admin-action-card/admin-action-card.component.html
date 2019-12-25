@@ -7,9 +7,19 @@
     <mat-form-field class="input-wrapper">
       <input
         matInput
-        type="time"
-        [formControl]="timeControl"
-        placeholder="Set end time to next input hours"
+        type="number"
+        [formControl]="timeHourControl"
+        placeholder="End at next input hour"
+      />
+    </mat-form-field>
+    <mat-form-field class="input-wrapper">
+      <input
+        matInput
+        type="number"
+        min="0"
+        max="59"
+        [formControl]="timeMinuteControl"
+        placeholder="End at next input minute"
       />
     </mat-form-field>
     <button

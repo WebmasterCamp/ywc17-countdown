@@ -63,9 +63,10 @@ export class CountdownComponent implements OnInit, OnDestroy {
     const minute = Math.floor((timeDiff % (60 * 60 * 1000)) / (60 * 1000));
     const second = Math.floor((timeDiff % (60 * 1000)) / 1000);
     const millisecond = timeDiff % 1000;
-    return `${fillZero(hour, 2)}:${fillZero(minute, 2)}:${fillZero(
-      second,
-      2
-    )}.${fillZero(millisecond, 3)}`;
+    return `${fillZero(hour, 2)}:${fillZero(minute, 2)}:${fillZero(second, 2)}`;
+    // return `${fillZero(hour, 2)}:${fillZero(minute, 2)}:${fillZero(
+    //   second,
+    //   2
+    // )}.${fillZero(millisecond, 3)}`;
   }
 }

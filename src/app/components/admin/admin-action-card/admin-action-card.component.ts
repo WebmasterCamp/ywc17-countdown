@@ -9,7 +9,8 @@ import * as moment from 'moment';
   styleUrls: ['./admin-action-card.component.scss']
 })
 export class AdminActionCardComponent implements OnInit {
-  timeControl = new FormControl('10:00');
+  timeHourControl = new FormControl(10);
+  timeMinuteControl = new FormControl(0);
   endHrsControl = new FormControl();
   endDateControl = new FormControl();
   textControl = new FormControl('');
@@ -36,7 +37,8 @@ export class AdminActionCardComponent implements OnInit {
     );
   }
   updateCountdown() {
-    const [hour, minute] = this.timeControl.value.split(':');
+    const hour = this.timeHourControl.value;
+    const minute = this.timeMinuteControl.value;
     const until = new Date();
     until.setHours(until.getHours() + Number(hour));
     until.setMinutes(until.getMinutes() + Number(minute));
