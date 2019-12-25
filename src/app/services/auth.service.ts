@@ -15,10 +15,13 @@ export class AuthService {
   private adminIds = this.db
     .doc<{ ids: string[] }>('config/admin')
     .valueChanges();
+
   constructor(private afAuth: AngularFireAuth, private db: AngularFirestore) {}
+
   get user() {
     return this.afAuth.authState;
   }
+
   isAdmin(id: string) {
     return this.adminIds.pipe(
       map(adminIds => adminIds && adminIds.ids.indexOf(id) > -1)

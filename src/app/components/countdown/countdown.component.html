@@ -1,16 +1,17 @@
 <div class="container">
   <a routerLink="/admin">
     <div [ngClass]="{ 'text-background': true, warn: isEnd }">
+      <p *ngIf="text" class="showing-text">{{ text }}</p>
       <p [ngClass]="{ 'countdown-text': true, warn: isEnd }">
-        <ng-container *ngIf="!showText; else textTemplate">
-          <span *ngFor="let letter of timeLetters">
-            {{ letter }}
-          </span>
-        </ng-container>
-        <ng-template #textTemplate>
-          {{ text }}
-        </ng-template>
+        <span *ngFor="let letter of timeLetters">
+          {{ letter }}
+        </span>
       </p>
+      <div class="sponsor-container">
+        <img src="/assets/twa.png" class="sponsor" alt="sponsor" />
+        <img src="/assets/exxon.png" class="sponsor" alt="sponsor" />
+        <img src="/assets/it.png" class="sponsor" alt="sponsor" />
+      </div>
     </div>
   </a>
 </div>

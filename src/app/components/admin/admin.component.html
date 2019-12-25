@@ -4,7 +4,7 @@
   <app-admin-signin-card
     *ngIf="!user && !checkingPermission"
   ></app-admin-signin-card>
-  <mat-card *ngIf="user && !permission">
+  <mat-card *ngIf="user && !checkingPermission && !permission">
     <mat-card-header>
       <mat-card-title>This user do not have admin permission</mat-card-title>
       <button mat-raised-button color="warn" (click)="signOut()">

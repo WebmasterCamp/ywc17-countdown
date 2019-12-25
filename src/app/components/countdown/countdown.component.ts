@@ -29,7 +29,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
         }),
         map(config => config.until.toDate()),
         switchMap(date =>
-          interval(91).pipe(
+          interval(19).pipe(
             map(() => this.getTimeDiff(date)),
             map(timeDiff => this.formatTime(timeDiff))
           )
