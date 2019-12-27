@@ -4,14 +4,13 @@
       <p *ngIf="text" class="showing-text">{{ text }}</p>
       <p [ngClass]="{ 'countdown-text': true, warn: isEnd }">
         <span *ngFor="let letter of timeLetters">
-          {{ letter }}
+          {{ letter }} 
         </span>
       </p>
-      <!-- <div class="sponsor-container">
-        <img src="/assets/twa.png" class="sponsor" alt="sponsor" />
-        <img src="/assets/exxon.png" class="sponsor" alt="sponsor" />
-        <img src="/assets/it.png" class="sponsor" alt="sponsor" />
-      </div> -->
     </div>
+    <img class="sponsor-container" src="/assets/spon.png"/>
+    <img class="ywc-logo" src="/assets/ywc-logo.png"/>
+    <img class="ywc-logo-2" src="/assets/ywc-logo-2.png"/>
+    
   </a>
 </div>
