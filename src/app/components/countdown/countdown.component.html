@@ -2,15 +2,14 @@
   <a routerLink="/admin">
     <div [ngClass]="{ 'text-background': true, warn: isEnd }">
       <p *ngIf="text" class="showing-text">{{ text }}</p>
-      <p [ngClass]="{ 'countdown-text': true, warn: isEnd }">
+      <p [ngClass]="{ 'countdown-text': true, warn: true }">
         <span *ngFor="let letter of timeLetters">
-          {{ letter }} 
+          {{ letter }}
         </span>
       </p>
     </div>
-    <img class="sponsor-container" src="/assets/spon.png"/>
-    <img class="ywc-logo" src="/assets/ywc-logo.png"/>
-    <img class="ywc-logo-2" src="/assets/ywc-logo-2.png"/>
-    
+    <img class="sponsor-container" src="/assets/spon.png" />
+    <img class="ywc-logo" src="/assets/ywc-logo.png" />
+    <img class="ywc-logo-2" src="/assets/ywc-logo-2.png" />
   </a>
 </div>

@@ -29,21 +29,26 @@
 
 @keyframes text-warning {
   0% {
-    color: rgba(228, 58, 151);
+    color: red;
     transform: scale(1);
   }
   25% {
+    transform: scale(1.75);
     color: #fefefe;
   }
   50% {
-    color: rgba(228, 58, 151);
-    transform: scale(1.2);
+    color: red;
+    transform: scale(2);
   }
   75% {
     color: #fefefe;
   }
+  90% {
+    color: red;
+    transform: scale(1.75);
+  }
   100% {
-    color: rgba(228, 58, 151);
+    color: red;
     transform: scale(1);
   }
 }
@@ -60,7 +65,7 @@
     text-align: center;
   }
   &.warn {
-    animation: text-warning 2s infinite;
+    animation: text-warning 700ms infinite;
   }
 
   @media screen and (max-width: 800px) {
