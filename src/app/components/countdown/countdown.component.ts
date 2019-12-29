@@ -34,8 +34,8 @@ export class CountdownComponent implements OnInit, OnDestroy {
             map(timeDiff => this.formatTime(timeDiff))
           )
         ),
-        map(time => (this.isEnd ? '00:00:00' : time)),
-        startWith('LOADING..')
+        map(time => (this.isEnd ? 'หมดเวลา' : time)),
+        startWith('LOADING...')
       )
       .subscribe({
         next: letters => {
