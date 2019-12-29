@@ -5,18 +5,21 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background-image: url('/assets/bg012.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .text-background {
-  background-image: url('/assets/splash.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  padding: 5em 7.5em;
+  padding: 10em 15.5em;
   display: flex;
   max-width: 100%;
   cursor: pointer;
-
+  background-image: url('/assets/bd01.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
   position: relative;
 
   &.warn {
@@ -26,32 +29,27 @@
 
 @keyframes text-warning {
   0% {
-    color: rgba(255, 0, 0, 0.7);
+    color: rgba(228, 58, 151);
     transform: scale(1);
   }
   25% {
-    transform: scale(1.75);
     color: #fefefe;
   }
   50% {
-    color: rgba(255, 0, 0, 0.7);
+    color: rgba(228, 58, 151);
     transform: scale(1.2);
   }
   75% {
     color: #fefefe;
   }
-  90% {
-    color: red;
-    transform: scale(1.75);
-  }
   100% {
-    color: rgba(255, 0, 0, 0.7);
+    color: rgba(228, 58, 151);
     transform: scale(1);
   }
 }
 
 .countdown-text {
-  font-size: 3.6em;
+  font-size: 5.6em;
   font-weight: bolder;
   font-family: 'Montserrat', sans-serif;
   white-space: nowrap;
@@ -62,7 +60,7 @@
     text-align: center;
   }
   &.warn {
-    animation: text-warning 700ms infinite;
+    animation: text-warning 2s infinite;
   }
 
   @media screen and (max-width: 800px) {
@@ -100,6 +98,7 @@
   justify-content: center;
   align-items: center;
   left: 50%;
+  width: 35em;
   transform: translateX(-50%);
 }
 
@@ -112,4 +111,18 @@
   overflow: hidden;
   border-radius: 50%;
   margin: 0 24px;
+}
+
+.ywc-logo {
+  position: fixed;
+  left: 1.5em;
+  top: 1.5em;
+  width: 15em;
+}
+
+.ywc-logo-2 {
+  position: fixed;
+  right: 1.5em;
+  top: 1.5em;
+  width: 15em;
 }

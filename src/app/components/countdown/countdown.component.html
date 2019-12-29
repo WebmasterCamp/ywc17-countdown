@@ -2,7 +2,7 @@
   <a routerLink="/admin">
     <div [ngClass]="{ 'text-background': true, warn: isEnd }">
       <p *ngIf="text" class="showing-text">{{ text }}</p>
-      <p [ngClass]="{ 'countdown-text': true, warn: true }">
+      <p [ngClass]="{ 'countdown-text': true, warn: isEnd }">
         <span *ngFor="let letter of timeLetters">
           {{ letter }}
         </span>
